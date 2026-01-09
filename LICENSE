@@ -1,0 +1,120 @@
+NORP - NeuraScope Orchestration Reference Patterns
+Licensing Information
+
+---
+
+## Specifications License
+
+All NORP specifications (files in specs/ directory) are licensed under:
+
+**Creative Commons Attribution 4.0 International (CC BY 4.0)**
+
+You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+- Attribution — You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+---
+
+## Reference Implementations License
+
+All reference implementations (code in reference-implementations/ directory) are licensed under:
+
+**MIT License**
+
+Copyright (c) 2026 NeuraScope CONVERWAY
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Compliance Tests License
+
+All compliance tests (files in compliance-tests/ directory) are licensed under:
+
+**MIT License**
+
+(Same terms as reference implementations above)
+
+---
+
+## Examples License
+
+All examples (files in examples/ directory) are licensed under:
+
+**CC0 1.0 Universal (Public Domain Dedication)**
+
+To the extent possible under law, NeuraScope CONVERWAY has waived all copyright
+and related or neighboring rights to NORP Examples.
+
+This work is published from: France
+
+Full license: https://creativecommons.org/publicdomain/zero/1.0/
+
+---
+
+## Documentation License
+
+All documentation files (README.md, CONTRIBUTING.md, etc.) are licensed under:
+
+**Creative Commons Attribution 4.0 International (CC BY 4.0)**
+
+(Same terms as specifications above)
+
+---
+
+## Attribution Requirements
+
+When using NORP specifications or implementations, please provide attribution:
+
+**For specifications**:
+"This system implements NORP-001 (NeuraScope Orchestration Reference Patterns),
+licensed under CC BY 4.0. See https://norp.neurascope.ai"
+
+**For code**:
+Include the MIT License text and copyright notice in your distribution.
+
+---
+
+## Trademarks
+
+"NORP" and "NeuraScope Orchestration Reference Patterns" are trademarks of
+NeuraScope CONVERWAY.
+
+Use of these trademarks to describe compatible implementations is permitted,
+but does not imply endorsement.
+
+Example permitted use: "MySystem is NORP-001 compliant"
+Example prohibited use: "Official NORP Implementation" (without authorization)
+
+---
+
+## Questions
+
+For licensing questions, contact: legal@neurascope.ai
+
+---
+
+**© 2026 NeuraScope CONVERWAY**
+All rights reserved except as expressly granted by the licenses above.

@@ -1,0 +1,53 @@
+{
+  "name": "Multi-Tenant Data Processing",
+  "description": "Example workflow demonstrating tenant isolation",
+  "version": "1.0",
+  "tenant_id": "acme_corp",
+  "nodes": [
+    {
+      "id": "fetch_data",
+      "type": "datasource",
+      "label": "Fetch Customer Data",
+      "config": {
+        "connection_id": 5,
+        "query": "SELECT * FROM customers WHERE tenant_id = :tenant_id LIMIT 100",
+        "params": {
+          "tenant_id": "{{context.tenant_id}}"
+        }
+      },
+      "depends_on": []
+    },
+    {
+      "id": "analyze_sentiment",
+      "type": "llm_call",
+      "label": "Analyze Customer Sentiment",
+      "config": {
+        "llm_server_id": 2,
+        "model": "claude-3-sonnet",
+        "prompt": "Analyze sentiment of customer feedback: {{nodes.fetch_data.output.feedback}}",
+        "max_tokens": 100
+      },
+      "depends_on": ["fetch_data"]
+    },
+    {
+      "id": "store_results",
+      "type": "datasource",
+      "label": "Store Analysis Results",
+      "config": {
+        "connection_id": 5,
+        "query": "INSERT INTO sentiment_analysis (customer_id, sentiment, tenant_id) VALUES (:customer_id, :sentiment, :tenant_id)",
+        "params": {
+          "customer_id": "{{nodes.fetch_data.output.customer_id}}",
+          "sentiment": "{{nodes.analyze_sentiment.output.sentiment}}",
+          "tenant_id": "{{context.tenant_id}}"
+        }
+      },
+      "depends_on": ["analyze_sentiment"]
+    }
+  ],
+  "metadata": {
+    "tenant_isolation": true,
+    "estimated_cost_usd": 0.50,
+    "estimated_duration_ms": 3000
+  }
+}

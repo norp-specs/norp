@@ -1,0 +1,23 @@
+{
+  "name": "Simple LLM Query Workflow",
+  "description": "Example workflow with single LLM call",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "llm_call_1",
+      "type": "llm_call",
+      "label": "Generate Response",
+      "config": {
+        "llm_server_id": 1,
+        "model": "gpt-4",
+        "prompt": "Explain quantum computing in simple terms",
+        "max_tokens": 500
+      },
+      "depends_on": []
+    }
+  ],
+  "metadata": {
+    "estimated_cost_usd": 0.015,
+    "estimated_duration_ms": 2000
+  }
+}
