@@ -25,6 +25,21 @@ Ce dépôt contient les spécifications normatives **NORP** (NeuraScope Orchestr
 
 ---
 
+## 🎯 Quick Start (30 seconds)
+
+**What is NORP?**
+Open standards defining **how to build safe, predictable AI orchestration systems** in production.
+
+**Why NORP?**
+Prevents cycles, isolates tenants, controls costs, ensures determinism.
+
+**How to use?**
+1. Read [NORP-001](./specs/NORP-001.md) (validation pipeline)
+2. Implement using [PHP](./reference-implementations/php/), [Python](./reference-implementations/python/), or [TypeScript](./reference-implementations/typescript/)
+3. Pass [compliance tests](./compliance-tests/)
+
+---
+
 ## Objectif
 
 NORP définit des invariants architecturaux et opérationnels pour garantir :
@@ -36,6 +51,27 @@ NORP définit des invariants architecturaux et opérationnels pour garantir :
 ---
 
 ## Standards disponibles
+
+### Architecture Overview
+
+```mermaid
+graph LR
+    A[NORP-001<br/>Validation Pipeline] --> B[NORP-004<br/>Cycle Detection]
+    A --> C[NORP-005<br/>Topological Order]
+    A --> D[NORP-007<br/>Cost Estimation]
+    B --> C
+    
+    E[NORP-002<br/>Multi-Tenant<br/>Isolation] -.->|applies to| A
+    F[NORP-003<br/>Immutable State] -.->|enforced by| A
+    G[NORP-006<br/>Resource Pooling] -.->|used in| A
+    
+    style A fill:#e1f5ff
+    style E fill:#ffe1e1
+    style F fill:#e1ffe1
+    style G fill:#fff5e1
+```
+
+### Specifications List
 
 | NORP | Titre | Statut | Version |
 |------|-------|--------|---------|
