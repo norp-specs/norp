@@ -83,6 +83,12 @@ graph LR
 | [NORP-006](./specs/NORP-006.md) | Resource Pooling with Context Isolation | ✅ **Stable** | **1.2** |
 | [NORP-007](./specs/NORP-007.md) | Cost Estimation Pre-Execution | ✅ **Stable** | **1.2** |
 
+### Languages
+
+NORP specifications are available in:
+- 🇬🇧 **English** (specs/NORP-*.md) - Original version
+- 🇫🇷 **Français** (specs/fr/NORP-*.md) - Complete translation
+
 ---
 
 ## Structure du dépôt
