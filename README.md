@@ -19,7 +19,7 @@
 
 Ce dépôt contient les spécifications normatives **NORP** (NeuraScope Orchestration Reference Patterns), un ensemble de standards ouverts pour l'orchestration IA en production.
 
-**Statut** : ✅ **Phase 1 + Phase 2 COMPLETE** (8 specs dont 7 STABLE + 3 implémentations)
+**Statut** : 🚀 **Phase 1 + Phase 2 DELIVERED** (8 specs dont 7 STABLE + 3 implémentations)
 
 **Licence** : CC BY 4.0 (spécifications) + MIT (implémentations de référence)
 
@@ -204,15 +204,15 @@ Les specs sont agnostiques technologie/langage/framework.
 
 ---
 
-## Comparaison avec standards existants
+## Related Standards
 
-| Standard | Scope | NORP avantage |
-|----------|-------|---------------|
-| **AAIF MCP** | Protocole communication LLM | NORP = Runtime + Validation + Multi-tenant |
-| **Airflow** | Batch workflows | NORP = Temps réel + IA probabiliste + Coûts variables |
-| **OpenAI Agents SDK** | Framework propriétaire | NORP = Vendor-neutral + Production-ready |
+NORP complements existing standards and frameworks:
 
-**NORP comble le gap** : Standards pour orchestration IA **multi-tenant sécurisée en production**.
+- **MCP** (Model Context Protocol): Standardizes LLM ↔ Tools communication. NORP focuses on workflow orchestration governance.
+- **OpenAPI**: Defines API contracts. NORP defines orchestration guarantees.
+- **Airflow**: Data pipeline scheduling. NORP addresses AI-specific concerns (probabilistic systems, variable costs, tenant isolation).
+
+NORP specifically targets **AI workflow orchestration** with multi-tenant isolation, deterministic execution, and cost control.
 
 ---
 
