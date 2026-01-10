@@ -1,0 +1,31 @@
+{
+  "norp_version": "1.2",
+  "norp_interface_version": "1.0",
+  "orchestrator": {
+    "name": "TODO: Your Orchestrator Name",
+    "version": "TODO: Your Version (e.g., 1.0.0)",
+    "vendor": "TODO: Your Organization (optional)",
+    "language": "TODO: Implementation Language (optional)",
+    "repository": "TODO: GitHub URL (optional)",
+    "documentation": "TODO: Docs URL (optional)",
+    "license": "TODO: MIT, Apache-2.0, Proprietary, etc. (optional)"
+  },
+  "compliance": {
+    "NORP-001": false,
+    "NORP-002": false,
+    "NORP-003": false,
+    "NORP-004": false,
+    "NORP-005": false,
+    "NORP-006": false,
+    "NORP-007": false
+  },
+  "non_compliance_rationale": {
+    "NORP-001": "TODO: Explain why not compliant or delete if compliant",
+    "NORP-002": "TODO: e.g., 'Single-tenant system' or delete if compliant",
+    "NORP-003": "TODO: e.g., 'Mutable state model' or delete if compliant",
+    "NORP-004": "TODO: e.g., 'Cycle detection not implemented' or delete if compliant",
+    "NORP-005": "TODO: e.g., 'Non-deterministic ordering' or delete if compliant",
+    "NORP-006": "TODO: e.g., 'Stateless execution' or delete if compliant",
+    "NORP-007": "TODO: e.g., 'Cost estimation not applicable (local models)' or delete if compliant"
+  }
+}

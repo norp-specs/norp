@@ -1,0 +1,92 @@
+{
+  "norp_version": "1.2",
+  "norp_interface_version": "1.0",
+  "orchestrator": {
+    "name": "NeuraScope Blueprint Engine",
+    "version": "2.5.0",
+    "vendor": "NeuraScope CONVERWAY",
+    "language": "PHP 8.2",
+    "repository": "https://app.neurascope.ai",
+    "documentation": "https://app.neurascope.ai",
+    "license": "Proprietary"
+  },
+  "compliance": {
+    "NORP-001": true,
+    "NORP-002": true,
+    "NORP-003": true,
+    "NORP-004": true,
+    "NORP-005": true,
+    "NORP-006": true,
+    "NORP-007": false
+  },
+  "norp_001_validation_pipeline": {
+    "compliant": true,
+    "stages": [
+      "structural_validation",
+      "compilation",
+      "context_resolution",
+      "execution",
+      "aggregation",
+      "accounting"
+    ],
+    "stage_order": "strict",
+    "fail_fast": true,
+    "caching": true
+  },
+  "norp_002_multi_tenant": {
+    "compliant": true,
+    "tenant_model": "organization",
+    "resolution_algorithm": [
+      "execution_context",
+      "principal_identity",
+      "workflow_ownership"
+    ],
+    "scoping_mechanisms": [
+      "database_filters",
+      "tenant_prefixed_paths",
+      "cache_keys"
+    ],
+    "global_resources_supported": true,
+    "cross_tenant_collaboration": true
+  },
+  "norp_003_immutability": {
+    "compliant": true,
+    "dto_mechanism": "readonly",
+    "language": "PHP 8.2",
+    "deep_immutability": true,
+    "serialization_supported": true
+  },
+  "norp_004_cycle_detection": {
+    "compliant": true,
+    "algorithm": "DFS",
+    "complexity": "O(V+E)",
+    "disconnected_subgraphs": true,
+    "diagnostic_completeness": "all_cycles"
+  },
+  "norp_005_deterministic_ordering": {
+    "compliant": true,
+    "algorithm": "Kahn",
+    "tie_breaking": "lexicographic",
+    "parallel_groups": true,
+    "logical_vs_physical_distinction": true
+  },
+  "norp_006_resource_pooling": {
+    "compliant": true,
+    "execution_scoped": true,
+    "cleanup_mechanism": "try_finally",
+    "pooling_supported": true,
+    "resource_types": ["database", "api_client", "cache"]
+  },
+  "norp_007_cost_control": {
+    "compliant": false,
+    "estimation_method": "approximation",
+    "conservative_margin": 0.30,
+    "budget_levels": ["per_execution", "per_tenant_daily"],
+    "runtime_enforcement": false,
+    "pricing_source": "hardcoded",
+    "rationale": "Cost estimation implemented but budget enforcement is advisory (warning), not blocking"
+  },
+  "non_compliance_rationale": {
+    "NORP-007": "Cost estimation implemented but budget enforcement is advisory (warning), not blocking. Corrections planned."
+  }
+}

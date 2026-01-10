@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://norp.neurascope.ai/schemas/norp-interface.schema.json",
+  "title": "NORP Interface Schema",
+  "description": "JSON Schema for NORP-008 compliant orchestrator interfaces (v1.0)",
+  "type": "object",
+  "required": ["norp_version", "norp_interface_version", "orchestrator", "compliance"],
+  "properties": {
+    "norp_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Highest NORP specification version implemented (e.g., '1.2')",
+      "examples": ["1.0", "1.2", "2.0"]
+    },
+    "norp_interface_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "NORP-008 Interface Specification version (e.g., '1.0')",
+      "examples": ["1.0"]
+    },
+    "orchestrator": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Orchestrator name",
+          "examples": ["NeuraScope Blueprint Engine", "LangChain", "n8n"]
+        },
+        "version": {
+          "type": "string",
+          "description": "Orchestrator version",
+          "examples": ["2.5.0", "0.1.0"]
+        },
+        "vendor": {
+          "type": "string",
+          "description": "Vendor or organization",
+          "examples": ["NeuraScope CONVERWAY", "Harrison Chase", "n8n GmbH"]
+        },
+        "language": {
+          "type": "string",
+          "description": "Primary implementation language",
+          "examples": ["PHP 8.2", "Python 3.11", "TypeScript 5.0"]
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source code repository URL"
+        },
+        "documentation": {
+          "type": "string",
+          "format": "uri",
+          "description": "Documentation URL"
+        },
+        "license": {
+          "type": "string",
+          "description": "Software license",
+          "examples": ["MIT", "Proprietary", "Apache-2.0"]
+        }
+      }
+    },
+    "compliance": {
+      "type": "object",
+      "required": ["NORP-001", "NORP-002", "NORP-003", "NORP-004", "NORP-005", "NORP-006", "NORP-007"],
+      "properties": {
+        "NORP-001": {"type": "boolean"},
+        "NORP-002": {"type": "boolean"},
+        "NORP-003": {"type": "boolean"},
+        "NORP-004": {"type": "boolean"},
+        "NORP-005": {"type": "boolean"},
+        "NORP-006": {"type": "boolean"},
+        "NORP-007": {"type": "boolean"}
+      },
+      "description": "Global compliance declaration for each NORP specification"
+    },
+    "non_compliance_rationale": {
+      "type": "object",
+      "description": "Explanations for NORP specs marked false",
+      "patternProperties": {
+        "^NORP-\\d{3}$": {
+          "type": "string",
+          "description": "Rationale for non-compliance (e.g., 'Not applicable', 'Not implemented')"
+        }
+      }
+    },
+    "norp_001_validation_pipeline": {
+      "type": "object",
+      "description": "NORP-001: Pre-Execution Validation Pipeline capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "stages": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Pipeline stages implemented",
+          "examples": [["structural_validation", "compilation", "context_resolution", "execution", "aggregation", "accounting"]]
+        },
+        "stage_order": {
+          "type": "string",
+          "enum": ["strict", "flexible"],
+          "description": "Whether stage order is strictly enforced"
+        },
+        "fail_fast": {
+          "type": "boolean",
+          "description": "Whether validation errors prevent execution"
+        },
+        "caching": {
+          "type": "boolean",
+          "description": "Whether validation results are cached (optional)"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Explanation if compliant is false"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["stages", "stage_order", "fail_fast"]
+      }
+    },
+    "norp_002_multi_tenant": {
+      "type": "object",
+      "description": "NORP-002: Multi-Tenant Resource Isolation capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "tenant_model": {
+          "type": "string",
+          "enum": ["organization", "user", "hierarchical", "not_applicable"],
+          "description": "Tenant isolation level"
+        },
+        "resolution_algorithm": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["execution_context", "principal_identity", "workflow_ownership"]
+          },
+          "description": "Tenant resolution priority order"
+        },
+        "scoping_mechanisms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["database_filters", "rls", "api_paths", "cache_keys", "file_paths"]
+          },
+          "description": "Resource scoping mechanisms used"
+        },
+        "global_resources_supported": {
+          "type": "boolean",
+          "description": "Whether global resources (is_global=true) are supported"
+        },
+        "cross_tenant_collaboration": {
+          "type": "boolean",
+          "description": "Whether cross-tenant operations are permitted with ACLs"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["tenant_model", "resolution_algorithm", "scoping_mechanisms"]
+      }
+    },
+    "norp_003_immutability": {
+      "type": "object",
+      "description": "NORP-003: Immutable Execution State capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "dto_mechanism": {
+          "type": "string",
+          "enum": ["readonly", "frozen_dataclass", "object_freeze", "final_fields", "other"],
+          "description": "Immutability mechanism used"
+        },
+        "language": {
+          "type": "string",
+          "description": "Implementation language (for context)"
+        },
+        "deep_immutability": {
+          "type": "boolean",
+          "description": "Whether nested objects are also immutable"
+        },
+        "serialization_supported": {
+          "type": "boolean",
+          "description": "Whether execution state is serializable"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["dto_mechanism", "deep_immutability"]
+      }
+    },
+    "norp_004_cycle_detection": {
+      "type": "object",
+      "description": "NORP-004: Cycle Detection and Graph Validity capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "algorithm": {
+          "type": "string",
+          "enum": ["DFS", "Kahn", "other"],
+          "description": "Cycle detection algorithm"
+        },
+        "complexity": {
+          "type": "string",
+          "enum": ["O(V+E)", "O(V^2)", "other"],
+          "description": "Time complexity"
+        },
+        "disconnected_subgraphs": {
+          "type": "boolean",
+          "description": "Whether cycles in disconnected subgraphs are detected"
+        },
+        "diagnostic_completeness": {
+          "type": "string",
+          "enum": ["all_cycles", "first_cycle"],
+          "description": "Whether all cycles or only first are reported"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["algorithm", "complexity", "disconnected_subgraphs"]
+      }
+    },
+    "norp_005_deterministic_ordering": {
+      "type": "object",
+      "description": "NORP-005: Deterministic Topological Ordering capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "algorithm": {
+          "type": "string",
+          "enum": ["Kahn", "DFS_postorder", "other"],
+          "description": "Topological sorting algorithm"
+        },
+        "tie_breaking": {
+          "type": "string",
+          "enum": ["lexicographic", "priority", "insertion_order", "other"],
+          "description": "Tie-breaking rule when multiple nodes equally eligible"
+        },
+        "parallel_groups": {
+          "type": "boolean",
+          "description": "Whether parallel-eligible nodes are identified"
+        },
+        "logical_vs_physical_distinction": {
+          "type": "boolean",
+          "description": "Whether logical order (audit) vs physical execution (parallel) are distinguished"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["algorithm", "tie_breaking"]
+      }
+    },
+    "norp_006_resource_pooling": {
+      "type": "object",
+      "description": "NORP-006: Execution Context Isolation and Resource Lifetime capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "execution_scoped": {
+          "type": "boolean",
+          "description": "Whether resources are scoped to single execution"
+        },
+        "cleanup_mechanism": {
+          "type": "string",
+          "enum": ["try_finally", "defer", "RAII", "other"],
+          "description": "Resource cleanup mechanism"
+        },
+        "pooling_supported": {
+          "type": "boolean",
+          "description": "Whether resource pooling within execution is supported"
+        },
+        "resource_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["database", "api_client", "model_session", "cache", "other"]
+          },
+          "description": "Types of resources that can be pooled"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["execution_scoped", "cleanup_mechanism"]
+      }
+    },
+    "norp_007_cost_control": {
+      "type": "object",
+      "description": "NORP-007: Cost Estimation and Budget Enforcement capabilities",
+      "required": ["compliant"],
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "estimation_method": {
+          "type": "string",
+          "enum": ["native_tokenizer", "approximation", "not_applicable"],
+          "description": "Token counting method for LLM cost estimation"
+        },
+        "conservative_margin": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Safety margin above minimum cost (0.0 to 1.0, e.g., 0.30 = 30%)"
+        },
+        "budget_levels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["per_execution", "per_workflow", "per_tenant_daily", "per_tenant_monthly"]
+          },
+          "description": "Budget granularity levels supported"
+        },
+        "runtime_enforcement": {
+          "type": "boolean",
+          "description": "Whether budget is enforced during execution (not just pre-execution)"
+        },
+        "pricing_source": {
+          "type": "string",
+          "enum": ["hardcoded", "dynamic_api", "not_applicable"],
+          "description": "How LLM pricing is obtained"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {"compliant": {"const": true}}
+      },
+      "then": {
+        "required": ["estimation_method", "budget_levels"]
+      }
+    }
+  }
+}

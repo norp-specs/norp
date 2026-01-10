@@ -1,0 +1,53 @@
+{
+  "norp_version": "1.2",
+  "norp_interface_version": "1.0",
+  "orchestrator": {
+    "name": "LocalFlow Engine",
+    "version": "1.0.0",
+    "language": "Python 3.11",
+    "repository": "https://github.com/example/localflow",
+    "license": "MIT"
+  },
+  "compliance": {
+    "NORP-001": true,
+    "NORP-002": false,
+    "NORP-003": true,
+    "NORP-004": true,
+    "NORP-005": true,
+    "NORP-006": false,
+    "NORP-007": false
+  },
+  "non_compliance_rationale": {
+    "NORP-002": "Single-tenant system, multi-tenant isolation not applicable",
+    "NORP-006": "Stateless execution model, no persistent resource handles",
+    "NORP-007": "All LLM models local (Ollama), zero API cost, estimation not applicable"
+  },
+  "norp_001_validation_pipeline": {
+    "compliant": true,
+    "stages": ["structural_validation", "compilation", "execution"],
+    "stage_order": "strict",
+    "fail_fast": true,
+    "caching": false
+  },
+  "norp_003_immutability": {
+    "compliant": true,
+    "dto_mechanism": "frozen_dataclass",
+    "language": "Python 3.11",
+    "deep_immutability": true,
+    "serialization_supported": true
+  },
+  "norp_004_cycle_detection": {
+    "compliant": true,
+    "algorithm": "Kahn",
+    "complexity": "O(V+E)",
+    "disconnected_subgraphs": true,
+    "diagnostic_completeness": "first_cycle"
+  },
+  "norp_005_deterministic_ordering": {
+    "compliant": true,
+    "algorithm": "Kahn",
+    "tie_breaking": "insertion_order",
+    "parallel_groups": false,
+    "logical_vs_physical_distinction": false
+  }
+}

@@ -82,6 +82,7 @@ graph LR
 | [NORP-005](./specs/NORP-005.md) | Topological Sorting for Execution Order | ✅ **Stable** | **1.2** |
 | [NORP-006](./specs/NORP-006.md) | Resource Pooling with Context Isolation | ✅ **Stable** | **1.2** |
 | [NORP-007](./specs/NORP-007.md) | Cost Estimation Pre-Execution | ✅ **Stable** | **1.2** |
+| [NORP-008](./specs/NORP-008.md) | NORP Interface Specification | 🔄 Draft | 1.0 |
 
 ### Languages
 
