@@ -8,8 +8,8 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Specs: 7 Stable](https://img.shields.io/badge/Specs-7%20Stable-success.svg)](./specs/)
-[![Quality: 9.4/10](https://img.shields.io/badge/Quality-9.4%2F10-brightgreen.svg)](./AUDIT-REPORT.md)
+[![Specs: 7 Stable + 1 Draft](https://img.shields.io/badge/Specs-7%20Stable%20%2B%201%20Draft-success.svg)](./specs/)
+[![Quality: 9.4/10](https://img.shields.io/badge/Quality-9.4%2F10-brightgreen.svg)](https://github.com/norp-specs/norp)
 
 </div>
 
@@ -19,7 +19,7 @@
 
 Ce dépôt contient les spécifications normatives **NORP** (NeuraScope Orchestration Reference Patterns), un ensemble de standards ouverts pour l'orchestration IA en production.
 
-**Statut** : ✅ **Phase 1 + Phase 2 COMPLETE** (7 specs STABLE + 3 implémentations)
+**Statut** : ✅ **Phase 1 + Phase 2 COMPLETE** (8 specs dont 7 STABLE + 3 implémentations)
 
 **Licence** : CC BY 4.0 (spécifications) + MIT (implémentations de référence)
 
@@ -98,32 +98,26 @@ NORP specifications are available in:
 NORP/
 ├── README.md                          # Ce fichier
 ├── specs/                             # Spécifications normatives
-│   ├── NORP-001.md                   # Validation Pipeline
-│   ├── NORP-002.md                   # Multi-Tenant Isolation
-│   ├── NORP-003.md                   # Immutable Pipeline
-│   ├── NORP-004.md                   # Cycle Detection
-│   ├── NORP-005.md                   # Topological Sorting
-│   ├── NORP-006.md                   # Resource Pooling
-│   └── NORP-007.md                   # Cost Estimation
+│   ├── NORP-001.md à 007.md          # 7 specs STABLE
+│   ├── NORP-008.md                   # Interface spec (DRAFT)
+│   └── fr/                           # Traductions françaises
+├── schemas/                           # JSON Schema
+│   ├── norp-interface.schema.json    # Validation NORP-008
+│   └── norp-interface.template.json  # Template starter
 ├── reference-implementations/         # Implémentations de référence
-│   ├── php/                          # Laravel/PHP
-│   │   ├── BlueprintValidator.php
-│   │   ├── BlueprintCompiler.php
-│   │   ├── ContextManager.php
-│   │   └── DTOs/
-│   ├── typescript/                   # TypeScript (planifié)
-│   └── python/                       # Python (planifié)
+│   ├── php/                          # PHP 8.2+
+│   ├── python/                       # Python 3.10+
+│   └── typescript/                   # TypeScript 5.0+
 ├── compliance-tests/                  # Suite de tests conformité
-│   ├── NORP-001-tests.md
-│   ├── NORP-002-tests.md
-│   └── test-runner.md
-├── examples/                          # Exemples non-normatifs
+│   └── NORP-001-tests.md à 008-tests.md
+├── examples/                          # Exemples
+│   ├── interfaces/                   # NORP-008 interfaces
+│   ├── saas/                         # Use case SaaS
 │   ├── simple-workflow.json
-│   ├── multi-tenant-workflow.json
-│   └── llm-orchestration.json
+│   └── multi-tenant-workflow.json
 └── governance/                        # Gouvernance NORP
     ├── CONTRIBUTING.md
-    ├── REVIEW-PROCESS.md
+    ├── CODE_OF_CONDUCT.md
     └── ROADMAP.md
 ```
 
@@ -175,10 +169,11 @@ Les specs sont agnostiques technologie/langage/framework.
 - 🔄 Revue communauté
 - ✅ Tests conformité (NORP-001, NORP-002, NORP-003, NORP-004, NORP-005, NORP-006, NORP-007)
 
-### Phase 2 : Implémentations multi-langages (Q2 2026)
-- 🔄 PHP (extraction depuis NeuraScope)
-- ⏳ TypeScript
-- ⏳ Python
+### Phase 2 : Implémentations multi-langages
+- ✅ **PHP** (6 fichiers, production-tested)
+- ✅ **Python** (5 fichiers)
+- ✅ **TypeScript** (6 fichiers)
+- ✅ **Phase 2 TERMINÉE**
 
 ### Phase 3 : Adoption externe (Q3 2026)
 - ⏳ Certification NORP-compliant
@@ -209,10 +204,10 @@ Les specs sont agnostiques technologie/langage/framework.
 
 ## Contact
 
-- **GitHub** : https://github.com/neurascope/norp-specs
+- **GitHub** : https://github.com/norp-specs/norp
 - **Site web** : https://norp.neurascope.ai (à venir)
-- **Issues** : https://github.com/neurascope/norp-specs/issues
-- **Discussions** : https://github.com/neurascope/norp-specs/discussions
+- **Issues** : https://github.com/norp-specs/norp/issues
+- **Discussions** : https://github.com/norp-specs/norp/discussions
 - **Email** : norp@neurascope.ai
 
 ---
@@ -228,7 +223,7 @@ Si vous utilisez NORP dans vos travaux académiques :
   institution={NeuraScope},
   year={2026},
   type={Technical Specification},
-  url={https://github.com/neurascope/norp-specs}
+  url={https://github.com/norp-specs/norp}
 }
 ```
 
