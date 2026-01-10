@@ -50,6 +50,28 @@ NORP définit des invariants architecturaux et opérationnels pour garantir :
 
 ---
 
+## Scope & Future Work
+
+### Current Scope (NORP-001 to 008)
+
+NORP currently covers **AI workflow orchestration** (directed graph execution):
+- Validation pipelines and cycle detection
+- Deterministic execution ordering
+- Multi-tenant and execution-scoped isolation
+- Cost estimation and budgeting
+- Machine-readable interfaces for interoperability
+
+### Out of Scope (Planned Future Phases)
+
+The following are **not yet covered** by NORP but planned for future specifications:
+- **Data & Knowledge Management** (RAG, vector storage, memory, chunking)
+- **LLM Protocols** (MCP integration details, multi-model routing, function calling)
+- **Platform Governance** (RBAC, audit trails, API key management, regulatory compliance)
+
+See `governance/ROADMAP.md` for future phases timeline.
+
+---
+
 ## Standards disponibles
 
 ### Architecture Overview
