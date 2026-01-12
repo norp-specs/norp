@@ -11,6 +11,8 @@
 [![Specs: 7 Stable + 1 Draft](https://img.shields.io/badge/Specs-7%20Stable%20%2B%201%20Draft-success.svg)](./specs/)
 [![Quality: 9.4/10](https://img.shields.io/badge/Quality-9.4%2F10-brightgreen.svg)](https://github.com/norp-specs/norp)
 
+[🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md)
+
 </div>
 
 ---
@@ -25,18 +27,18 @@ Ce dépôt contient les spécifications normatives **NORP** (NeuraScope Orchestr
 
 ---
 
-## 🎯 Quick Start (30 seconds)
+## 🎯 Démarrage Rapide (30 secondes)
 
-**What is NORP?**
-Open standards defining **how to build safe, predictable AI orchestration systems** in production.
+**Qu'est-ce que NORP ?**
+Standards ouverts définissant **comment construire des systèmes d'orchestration IA sûrs et prévisibles** en production.
 
-**Why NORP?**
-Prevents cycles, isolates tenants, controls costs, ensures determinism.
+**Pourquoi NORP ?**
+Empêche les cycles, isole les tenants, contrôle les coûts, assure le déterminisme.
 
-**How to use?**
-1. Read [NORP-001](./specs/NORP-001.md) (validation pipeline)
-2. Implement using [PHP](./reference-implementations/php/), [Python](./reference-implementations/python/), or [TypeScript](./reference-implementations/typescript/)
-3. Pass [compliance tests](./compliance-tests/)
+**Comment utiliser ?**
+1. Lire [NORP-001](./specs/fr/NORP-001.md) (pipeline de validation)
+2. Implémenter avec [PHP](./reference-implementations/php/), [Python](./reference-implementations/python/), ou [TypeScript](./reference-implementations/typescript/)
+3. Réussir les [tests de conformité](./compliance-tests/)
 
 ---
 
@@ -50,25 +52,25 @@ NORP définit des invariants architecturaux et opérationnels pour garantir :
 
 ---
 
-## Scope & Future Work
+## Périmètre & Travaux Futurs
 
-### Current Scope (NORP-001 to 008)
+### Périmètre Actuel (NORP-001 à 008)
 
-NORP currently covers **AI workflow orchestration** (directed graph execution):
-- Validation pipelines and cycle detection
-- Deterministic execution ordering
-- Multi-tenant and execution-scoped isolation
-- Cost estimation and budgeting
-- Machine-readable interfaces for interoperability
+NORP couvre actuellement **l'orchestration de workflows IA** (exécution de graphes dirigés) :
+- Pipelines de validation et détection de cycles
+- Ordonnancement déterministe de l'exécution
+- Isolation multi-tenant et cloisonnement par exécution
+- Estimation et contrôle des coûts
+- Interfaces lisibles par machine pour l'interopérabilité
 
-### Out of Scope (Planned Future Phases)
+### Hors Périmètre (Phases Futures Planifiées)
 
-The following are **not yet covered** by NORP but planned for future specifications:
-- **Data & Knowledge Management** (RAG, vector storage, memory, chunking)
-- **LLM Protocols** (MCP integration details, multi-model routing, function calling)
-- **Platform Governance** (RBAC, audit trails, API key management, regulatory compliance)
+Les éléments suivants ne sont **pas encore couverts** par NORP mais planifiés pour futures spécifications :
+- **Gestion Données & Connaissances** (RAG, stockage vectoriel, mémoire, chunking)
+- **Protocoles LLM** (détails intégration MCP, routage multi-modèles, function calling)
+- **Gouvernance Plateforme** (RBAC, pistes audit, gestion clés API, conformité réglementaire)
 
-See `governance/ROADMAP.md` for future phases timeline.
+Voir `governance/ROADMAP.md` pour calendrier phases futures.
 
 ---
 
@@ -204,15 +206,15 @@ Les specs sont agnostiques technologie/langage/framework.
 
 ---
 
-## Related Standards
+## Standards Associés
 
-NORP complements existing standards and frameworks:
+NORP complète les standards et frameworks existants :
 
-- **MCP** (Model Context Protocol): Standardizes LLM ↔ Tools communication. NORP focuses on workflow orchestration governance.
-- **OpenAPI**: Defines API contracts. NORP defines orchestration guarantees.
-- **Airflow**: Data pipeline scheduling. NORP addresses AI-specific concerns (probabilistic systems, variable costs, tenant isolation).
+- **MCP** (Model Context Protocol) : Standardise communication LLM ↔ Outils. NORP se concentre sur la gouvernance d'orchestration workflows.
+- **OpenAPI** : Définit contrats API. NORP définit garanties d'orchestration.
+- **Airflow** : Ordonnancement pipelines de données. NORP adresse problématiques spécifiques IA (systèmes probabilistes, coûts variables, isolation tenant).
 
-NORP specifically targets **AI workflow orchestration** with multi-tenant isolation, deterministic execution, and cost control.
+NORP cible spécifiquement **l'orchestration de workflows IA** avec isolation multi-tenant, exécution déterministe, et contrôle des coûts.
 
 ---
 
