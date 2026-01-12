@@ -11,19 +11,17 @@
 [![Specs: 7 Stable + 1 Draft](https://img.shields.io/badge/Specs-7%20Stable%20%2B%201%20Draft-success.svg)](./specs/)
 [![Quality: 9.4/10](https://img.shields.io/badge/Quality-9.4%2F10-brightgreen.svg)](https://github.com/norp-specs/norp)
 
-[🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md)
-
 </div>
 
 ---
 
-## Overview
+## Vue d'ensemble
 
-This repository contains **NORP** (NeuraScope Orchestration Reference Patterns), a set of open standards for production-grade AI orchestration systems.
+Ce dépôt contient les spécifications normatives **NORP** (NeuraScope Orchestration Reference Patterns), un ensemble de standards ouverts pour l'orchestration IA en production.
 
-**Status**: 🚀 **Phase 1 + Phase 2 DELIVERED** (8 specifications, 7 STABLE + 1 DRAFT, 3 reference implementations)
+**Statut** : 🚀 **Phase 1 + Phase 2 DELIVERED** (8 specs dont 7 STABLE + 3 implémentations)
 
-**License**: CC BY 4.0 (specifications) + MIT (reference code)
+**Licence** : CC BY 4.0 (spécifications) + MIT (implémentations de référence)
 
 ---
 
@@ -42,13 +40,13 @@ Prevents cycles, isolates tenants, controls costs, ensures determinism.
 
 ---
 
-## Objectives
+## Objectif
 
-NORP defines architectural and operational invariants to guarantee:
-- **Security**: Strict multi-tenant isolation
-- **Reliability**: Fail-fast pre-execution validation
-- **Predictability**: Determinism and traceability
-- **Performance**: O(V+E) scalable algorithms
+NORP définit des invariants architecturaux et opérationnels pour garantir :
+- **Sécurité** : Isolation multi-tenant stricte
+- **Fiabilité** : Validation fail-fast pré-exécution
+- **Prévisibilité** : Déterminisme et traçabilité
+- **Performance** : Algorithmes O(V+E) scalables
 
 ---
 
@@ -74,7 +72,7 @@ See `governance/ROADMAP.md` for future phases timeline.
 
 ---
 
-## Available Specifications
+## Standards disponibles
 
 ### Architecture Overview
 
@@ -84,11 +82,11 @@ graph LR
     A --> C[NORP-005<br/>Topological Order]
     A --> D[NORP-007<br/>Cost Estimation]
     B --> C
-
+    
     E[NORP-002<br/>Multi-Tenant<br/>Isolation] -.->|applies to| A
     F[NORP-003<br/>Immutable State] -.->|enforced by| A
     G[NORP-006<br/>Resource Pooling] -.->|used in| A
-
+    
     style A fill:#e1f5ff
     style E fill:#ffe1e1
     style F fill:#e1ffe1
@@ -97,7 +95,7 @@ graph LR
 
 ### Specifications List
 
-| NORP | Title | Status | Version |
+| NORP | Titre | Statut | Version |
 |------|-------|--------|---------|
 | [NORP-001](./specs/NORP-001.md) | Pre-Execution Validation Pipeline | ✅ **Stable** | **1.2** |
 | [NORP-002](./specs/NORP-002.md) | Multi-Tenant Resource Isolation | ✅ **Stable** | **1.2** |
@@ -116,73 +114,72 @@ NORP specifications are available in:
 
 ---
 
-## Repository Structure
+## Structure du dépôt
 
 ```
 NORP/
-├── README.md                          # This file
-├── specs/                             # Normative specifications
-│   ├── NORP-001.md to 007.md         # 7 STABLE specs
+├── README.md                          # Ce fichier
+├── specs/                             # Spécifications normatives
+│   ├── NORP-001.md à 007.md          # 7 specs STABLE
 │   ├── NORP-008.md                   # Interface spec (DRAFT)
-│   └── fr/                           # French translations
+│   └── fr/                           # Traductions françaises
 ├── schemas/                           # JSON Schema
-│   ├── norp-interface.schema.json    # NORP-008 validation
-│   └── norp-interface.template.json  # Starter template
-├── reference-implementations/         # Reference implementations
+│   ├── norp-interface.schema.json    # Validation NORP-008
+│   └── norp-interface.template.json  # Template starter
+├── reference-implementations/         # Implémentations de référence
 │   ├── php/                          # PHP 8.2+
 │   ├── python/                       # Python 3.10+
 │   └── typescript/                   # TypeScript 5.0+
-├── compliance-tests/                  # Compliance test suites
-│   └── NORP-001-tests.md to 008-tests.md
-├── examples/                          # Examples
+├── compliance-tests/                  # Suite de tests conformité
+│   └── NORP-001-tests.md à 008-tests.md
+├── examples/                          # Exemples
 │   ├── interfaces/                   # NORP-008 interfaces
-│   ├── saas/                         # SaaS use case
+│   ├── saas/                         # Use case SaaS
 │   ├── simple-workflow.json
 │   └── multi-tenant-workflow.json
-└── governance/                        # NORP governance
+└── governance/                        # Gouvernance NORP
     ├── CONTRIBUTING.md
     ├── CODE_OF_CONDUCT.md
-    ├── WORKING-GROUP.md
     └── ROADMAP.md
 ```
 
 ---
 
-## Usage
+## Utilisation
 
-### To Implement NORP in Your System
+### Pour implémenter NORP dans votre système
 
-1. Read specifications in `specs/`
-2. Consult reference implementations in `reference-implementations/`
-3. Run compliance tests in `compliance-tests/`
+1. Lire les spécifications dans `specs/`
+2. Consulter les implémentations de référence dans `reference-implementations/`
+3. Exécuter les tests de conformité dans `compliance-tests/`
 
-### To Contribute to Standards
+### Pour contribuer aux standards
 
-1. Read `governance/CONTRIBUTING.md`
-2. Propose changes via Pull Request
-3. Follow review process in `governance/WORKING-GROUP.md`
+1. Lire `governance/CONTRIBUTING.md`
+2. Proposer modifications via Pull Request
+3. Suivre le processus de revue dans `governance/REVIEW-PROCESS.md`
 
 ---
 
-## Founding Principles
+## Principes fondateurs
 
-### 1. **Standards Based on Production Code**
-Each NORP pattern is extracted from **production-tested code** at NeuraScope, not theory.
+### 1. **Standards basés sur code production**
+Chaque NORP est extrait de code NeuraScope **déjà en production**, pas de théorie.
 
-### 2. **Mandatory Testability**
-Every NORP includes executable compliance test suite.
+### 2. **Testabilité obligatoire**
+Chaque NORP inclut une suite de tests de conformité exécutables.
 
-### 3. **Reference Implementations**
-Reusable code provided under MIT license to facilitate adoption.
+### 3. **Implémentations de référence**
+Code réutilisable fourni sous licence MIT pour faciliter l'adoption.
 
-### 4. **No Vendor Lock-In**
-Specifications are technology, language, and framework agnostic.
+### 4. **Pas de vendor lock-in**
+Les specs sont agnostiques technologie/langage/framework.
 
 ---
 
 ## Roadmap
 
-### Phase 1: Foundational Specifications
+### Phase 1 : Spécifications fondamentales (Q1 2026) - EN COURS
 - ✅ **NORP-001 v1.2 STABLE** (2026-01-09)
 - ✅ **NORP-002 v1.2 STABLE** (2026-01-09)
 - ✅ **NORP-003 v1.2 STABLE** (2026-01-09)
@@ -190,20 +187,20 @@ Specifications are technology, language, and framework agnostic.
 - ✅ **NORP-005 v1.2 STABLE** (2026-01-09)
 - ✅ **NORP-006 v1.2 STABLE** (2026-01-09)
 - ✅ **NORP-007 v1.2 STABLE** (2026-01-09)
-- ✅ **NORP-008 v1.0 DRAFT** (2026-01-10)
-- ✅ **Phase 1 COMPLETED** (7/7 stable specs)
-- ✅ Compliance tests (NORP-001 through 008)
+- ✅ **Phase 1 TERMINÉE** (7/7 specs STABLE)
+- 🔄 Revue communauté
+- ✅ Tests conformité (NORP-001, NORP-002, NORP-003, NORP-004, NORP-005, NORP-006, NORP-007)
 
-### Phase 2: Multi-Language Implementations
-- ✅ **PHP** (6 files, production-tested)
-- ✅ **Python** (5 files)
-- ✅ **TypeScript** (6 files)
-- ✅ **Phase 2 COMPLETED**
+### Phase 2 : Implémentations multi-langages
+- ✅ **PHP** (6 fichiers, production-tested)
+- ✅ **Python** (5 fichiers)
+- ✅ **TypeScript** (6 fichiers)
+- ✅ **Phase 2 TERMINÉE**
 
-### Phase 3: External Adoption (Q3 2026)
-- ⏳ NORP-compliant certification program
-- ⏳ Third-party integrations
-- ⏳ Workshops and conferences
+### Phase 3 : Adoption externe (Q3 2026)
+- ⏳ Certification NORP-compliant
+- ⏳ Intégrations tierces
+- ⏳ Workshops et conférences
 
 ---
 
@@ -219,27 +216,27 @@ NORP specifically targets **AI workflow orchestration** with multi-tenant isolat
 
 ---
 
-## License
+## Licence
 
-- **Specifications** (`specs/`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- **Reference code** (`reference-implementations/`): [MIT License](https://opensource.org/licenses/MIT)
-- **Tests** (`compliance-tests/`): [MIT License](https://opensource.org/licenses/MIT)
+- **Spécifications** (`specs/`) : [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Code de référence** (`reference-implementations/`) : [MIT License](https://opensource.org/licenses/MIT)
+- **Tests** (`compliance-tests/`) : [MIT License](https://opensource.org/licenses/MIT)
 
 ---
 
 ## Contact
 
-- **GitHub**: https://github.com/norp-specs/norp
-- **Website**: https://norp.neurascope.ai (coming soon)
-- **Issues**: https://github.com/norp-specs/norp/issues
-- **Discussions**: https://github.com/norp-specs/norp/discussions
-- **Email**: norp@neurascope.ai
+- **GitHub** : https://github.com/norp-specs/norp
+- **Site web** : https://norp.neurascope.ai (à venir)
+- **Issues** : https://github.com/norp-specs/norp/issues
+- **Discussions** : https://github.com/norp-specs/norp/discussions
+- **Email** : norp@neurascope.ai
 
 ---
 
 ## Citation
 
-If you use NORP in academic work:
+Si vous utilisez NORP dans vos travaux académiques :
 
 ```bibtex
 @techreport{norp2026,
@@ -254,6 +251,6 @@ If you use NORP in academic work:
 
 ---
 
-**NORP** - Open standards for trustworthy AI orchestration.
+**NORP** - Standards ouverts pour l'orchestration IA de confiance.
 
-**© 2026 NeuraScope - Powered by CONVERWAY**
+**© 2026 NeuraScope - Propulsé par CONVERWAY**
